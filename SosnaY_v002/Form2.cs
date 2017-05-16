@@ -400,17 +400,21 @@ namespace SosnaY_v00
                       Ll, //амплитуда сигнала энергии на краях линейной зоны
                       E0;  //величина освещенности в центре поля управ.
 
-        ////Усреднение
-        //public double[] Buffer_Z1 = new double[2000000];
-        //public double[] Buffer_Y1 = new double[2000000];
-        //public double[] Buffer_P = new double[2000000];
-            
+        //Усреднение
+        public double[] Buffer_Z = new double[2000000];
+        public double[] Buffer_Y = new double[2000000];
+        public double[] Buffer_P = new double[2000000];
 
-        ////Счетчик позиции
-        //public int Buffer_Z1_Counter,
-        //           Buffer_Y1_Counter,
-        //           Buffer_P_Counter;
 
+        //Счетчик позиции
+        public int Counter;
+
+        //Порог срабатывания (0.05)
+        public double ThresholdTrigger = 0.05D;
+        //Размер растра {количество средних значений}(100)
+        public int RastSize = 100;
+        //Время начала (в посылках)
+        public int StartTime = 1796;
 
         #endregion
 
@@ -1410,14 +1414,94 @@ namespace SosnaY_v00
                     Kor_ZY = Math.Sqrt((Math.Pow(Kor_Z, 2) + Math.Pow(Kor_Y, 2)));
 
                     ////!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    //Buffer_Z1[Buffer_Z1_Counter] = Kor_Z;
-                    //Buffer_Z1_Counter++;
+                        Buffer_Z[Counter] = Kor_Z;
+                        Counter++;
 
-                    //Buffer_Y1[Buffer_Y1_Counter] = Kor_Y;
-                    //Buffer_Y1_Counter++;
+                        Buffer_Y[Counter] = Kor_Y;
 
-                    //Buffer_P[Buffer_P_Counter] = Kor_P;
-                    //Buffer_P_Counter++;
+                        Buffer_P[Counter] = Kor_P;
+
+                    if (Counter > StartTime)//1798)
+                    {
+                        double buf_Z_tmp = 0;
+                        double buf_Y_tmp = 0;
+                        double buf_P_tmp = 0;
+
+                        if (Application.OpenForms["Form5"] != null)
+                        {
+                            RastSize = form5.RastSize;
+                            ThresholdTrigger = form5.ThresholdTrigger;
+                            StartTime = form5.StartTime;
+                        }
+
+                        for (int i = Counter - RastSize - 1; i < Counter - 1; i++)
+                        {
+                            buf_Z_tmp += Buffer_Z[i];
+                            buf_Y_tmp += Buffer_Y[i];
+                            buf_P_tmp += Buffer_P[i];
+                        }
+
+                        buf_Z_tmp /= RastSize;
+                        buf_Y_tmp /= RastSize;
+                        buf_P_tmp /= RastSize;
+
+                        // Расчет корректировки для графика Kor_Z
+                        if (Math.Abs(Buffer_Z[Counter] - buf_Z_tmp) > ThresholdTrigger)
+                        {
+                            // Взависимости от знака +- 0.05
+                            if (Buffer_Z[Counter] - buf_Z_tmp >= 0)
+                            {
+                                Kor_Z = buf_Z_tmp + ThresholdTrigger;
+                            }
+                            else
+                            {
+                                Kor_Z = buf_Z_tmp - ThresholdTrigger;
+                            }
+                            Buffer_Z[Counter] = Kor_Z;
+                        }
+                        else
+                        {
+                            Kor_Z = Buffer_Z[Counter];
+                        }
+
+                        // Расчет корректировки для графика Kor_Y
+                        if (Math.Abs(Buffer_Y[Counter] - buf_Y_tmp) > ThresholdTrigger)
+                        {
+                            // Взависимости от знака +- 0.05
+                            if (Buffer_Y[Counter] - buf_Y_tmp >= 0)
+                            {
+                                Kor_Y = buf_Y_tmp + ThresholdTrigger;
+                            }
+                            else
+                            {
+                                Kor_Y = buf_Y_tmp - ThresholdTrigger;
+                            }
+                            Buffer_Z[Counter] = Kor_Y;
+                        }
+                        else
+                        {
+                            Kor_Y = Buffer_Y[Counter];
+                        }
+
+                        // Расчет корректировки для графика Kor_P
+                        if (Math.Abs(Buffer_P[Counter] - buf_P_tmp) > ThresholdTrigger)
+                        {
+                            // Взависимости от знака +- 0.05
+                            if (Buffer_P[Counter] - buf_P_tmp >= 0)
+                            {
+                                Kor_P = buf_P_tmp + ThresholdTrigger;
+                            }
+                            else
+                            {
+                                Kor_P = buf_P_tmp - ThresholdTrigger;
+                            }
+                            Buffer_P[Counter] = Kor_P;
+                        }
+                        else
+                        {
+                            Kor_P = Buffer_P[Counter];
+                        }
+                    }
                     ////!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
                     list1.Add(l, Kor_Z);

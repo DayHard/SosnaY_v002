@@ -49,6 +49,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labStartTime = new System.Windows.Forms.Label();
+            this.labThresholdTrigger = new System.Windows.Forms.Label();
+            this.labRastSize = new System.Windows.Forms.Label();
+            this.tbStartTime = new System.Windows.Forms.TextBox();
+            this.tbThresholdTrigger = new System.Windows.Forms.TextBox();
+            this.tbRastSize = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -249,7 +255,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button2.Font = new System.Drawing.Font("Verdana", 14F);
-            this.button2.Location = new System.Drawing.Point(74, 472);
+            this.button2.Location = new System.Drawing.Point(67, 584);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(159, 48);
             this.button2.TabIndex = 18;
@@ -261,7 +267,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button3.Font = new System.Drawing.Font("Verdana", 14F);
-            this.button3.Location = new System.Drawing.Point(338, 471);
+            this.button3.Location = new System.Drawing.Point(340, 584);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(159, 48);
             this.button3.TabIndex = 19;
@@ -273,6 +279,12 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FloralWhite;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.labStartTime);
+            this.panel1.Controls.Add(this.labThresholdTrigger);
+            this.panel1.Controls.Add(this.labRastSize);
+            this.panel1.Controls.Add(this.tbStartTime);
+            this.panel1.Controls.Add(this.tbThresholdTrigger);
+            this.panel1.Controls.Add(this.tbRastSize);
             this.panel1.Controls.Add(this.label22);
             this.panel1.Controls.Add(this.label21);
             this.panel1.Controls.Add(this.label19);
@@ -306,8 +318,68 @@
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(548, 448);
+            this.panel1.Size = new System.Drawing.Size(548, 566);
             this.panel1.TabIndex = 20;
+            // 
+            // labStartTime
+            // 
+            this.labStartTime.AutoSize = true;
+            this.labStartTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labStartTime.Location = new System.Drawing.Point(168, 486);
+            this.labStartTime.Name = "labStartTime";
+            this.labStartTime.Size = new System.Drawing.Size(170, 20);
+            this.labStartTime.TabIndex = 35;
+            this.labStartTime.Text = "Время начала    мс";
+            // 
+            // labThresholdTrigger
+            // 
+            this.labThresholdTrigger.AutoSize = true;
+            this.labThresholdTrigger.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labThresholdTrigger.Location = new System.Drawing.Point(107, 445);
+            this.labThresholdTrigger.Name = "labThresholdTrigger";
+            this.labThresholdTrigger.Size = new System.Drawing.Size(233, 20);
+            this.labThresholdTrigger.TabIndex = 34;
+            this.labThresholdTrigger.Text = "Порог срабатывания     ед";
+            // 
+            // labRastSize
+            // 
+            this.labRastSize.AutoSize = true;
+            this.labRastSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labRastSize.Location = new System.Drawing.Point(163, 404);
+            this.labRastSize.Name = "labRastSize";
+            this.labRastSize.Size = new System.Drawing.Size(177, 20);
+            this.labRastSize.TabIndex = 33;
+            this.labRastSize.Text = "Размер растра    ед";
+            // 
+            // tbStartTime
+            // 
+            this.tbStartTime.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.tbStartTime.Location = new System.Drawing.Point(356, 478);
+            this.tbStartTime.Name = "tbStartTime";
+            this.tbStartTime.Size = new System.Drawing.Size(76, 35);
+            this.tbStartTime.TabIndex = 32;
+            this.tbStartTime.Text = "1796";
+            this.tbStartTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbThresholdTrigger
+            // 
+            this.tbThresholdTrigger.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.tbThresholdTrigger.Location = new System.Drawing.Point(356, 437);
+            this.tbThresholdTrigger.Name = "tbThresholdTrigger";
+            this.tbThresholdTrigger.Size = new System.Drawing.Size(76, 35);
+            this.tbThresholdTrigger.TabIndex = 31;
+            this.tbThresholdTrigger.Text = "0.05";
+            this.tbThresholdTrigger.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbRastSize
+            // 
+            this.tbRastSize.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.tbRastSize.Location = new System.Drawing.Point(356, 396);
+            this.tbRastSize.Name = "tbRastSize";
+            this.tbRastSize.Size = new System.Drawing.Size(76, 35);
+            this.tbRastSize.TabIndex = 30;
+            this.tbRastSize.Text = "100";
+            this.tbRastSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label22
             // 
@@ -341,7 +413,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox1.Location = new System.Drawing.Point(32, 409);
+            this.checkBox1.Location = new System.Drawing.Point(32, 528);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(364, 20);
             this.checkBox1.TabIndex = 21;
@@ -425,7 +497,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(573, 532);
+            this.ClientSize = new System.Drawing.Size(573, 644);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -434,8 +506,8 @@
             this.MinimizeBox = false;
             this.Name = "Form5";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Form5_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form5_FormClosing);
+            this.Load += new System.EventHandler(this.Form5_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -477,5 +549,11 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label labStartTime;
+        private System.Windows.Forms.Label labThresholdTrigger;
+        private System.Windows.Forms.Label labRastSize;
+        private System.Windows.Forms.TextBox tbStartTime;
+        private System.Windows.Forms.TextBox tbThresholdTrigger;
+        private System.Windows.Forms.TextBox tbRastSize;
     }
 }

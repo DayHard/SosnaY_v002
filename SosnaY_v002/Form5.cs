@@ -33,7 +33,15 @@ namespace SosnaY_v00
         public Form13 form13;
         public short click;
         public bool stend;
-      
+
+        //Порог срабатывания (0.05)
+        public double ThresholdTrigger;
+        //Размер растра {количество средних значений}(100)
+        public int RastSize;
+        //Время начала (в посылках)
+        public int StartTime;
+
+
         public void XmlConfigRead() //чтение данных для настроек
         {
             XmlTextReader rd = new XmlTextReader(Convert.ToString("config.xml"));
@@ -107,6 +115,10 @@ namespace SosnaY_v00
         private void Form5_FormClosing(object sender, FormClosingEventArgs e)
         {
             form6.Show();
+            ThresholdTrigger = Double.Parse(tbThresholdTrigger.Text);
+            RastSize = Int32.Parse(tbRastSize.Text);
+            StartTime = Int32.Parse(tbStartTime.Text);
+
             if (click == 1)
             {
               
