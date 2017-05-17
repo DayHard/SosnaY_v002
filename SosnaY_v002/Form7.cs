@@ -1512,88 +1512,72 @@ namespace SosnaY_v00
                 #region ADC_OUT
                 for (l = number; l < ComPorts.schet_poket; l++)
                 {
-                    Kor_Z1 = (short)((((ComPorts.buffer[l][3] << 8) & 0x7F00) | ComPorts.buffer[l][2]));
-                    Kor_Y1 = (short)((((ComPorts.buffer[l][5] << 8) & 0x7F00) | ComPorts.buffer[l][4]));
-                    Kor_P = (double)((double)((double)((double)(((ComPorts.buffer[l][7] << 8) & 0x7F00) | ComPorts.buffer[l][6]) / 1024)));
+                        Kor_Z1 = (short)((((ComPorts.buffer[l][3] << 8) & 0x7F00) | ComPorts.buffer[l][2]));
+                        Kor_Y1 = (short)((((ComPorts.buffer[l][5] << 8) & 0x7F00) | ComPorts.buffer[l][4]));
+                        Kor_P = (double)((double)((double)((double)(((ComPorts.buffer[l][7] << 8) & 0x7F00) | ComPorts.buffer[l][6]) / 1024)));
 
-                    #region KOR_SHUM      
-                        //Корректировка кода согласно ТЗ от 4.01.2017. Принес Малашко Денис с подписью Соколовского и Штыцко. На графике освещенности все значения понизить на величину 15 единиц АЦП, значения менее 15 единиц АЦП приравнять к нулю (дословно)
-                        //Путем анализа кода выяснилось, что на графике Освещенность рисуется оранжевым цветом и под буквой E. Данные этого графика составляют значения из списка list3
-                            if (Kor_P < 12.0 / 1024.0)
-                            {
-                                Kor_P = 0;
-                            }
-                            else
-                            {
-                                Kor_P -= 12.0 / 1024.0;
-                            }
-                        //Конец корректировки согласно ТЗ от 4.01.2017
-                    #endregion
+                        if ((ComPorts.buffer[l][3] == 0x80) || (ComPorts.buffer[l][3] == 0x81) || (ComPorts.buffer[l][3] == 0x82) || (ComPorts.buffer[l][3] == 0x83))
+                        {
 
+                            Kor_Z = (double)((double)(((Kor_Z1) / (double)(1024)) - XMLW.Cmehenie_Z) / (XMLW.MZ / XMLW.Const)); // смешение от нуля...тарировочный коээфф...5 вольт!
+                            Kor_Z = Kor_Z * (-1);
+                        }
+                        else
+                        {
+                            Kor_Z = (double)((double)(((Kor_Z1) / (double)(1024)) + XMLW.Cmehenie_Z) / (XMLW.PZ / XMLW.Const));
+                        }
 
+                        if ((ComPorts.buffer[l][5] == 0x80) || (ComPorts.buffer[l][5] == 0x81) || (ComPorts.buffer[l][5] == 0x82) || (ComPorts.buffer[l][5] == 0x83))
+                        {
+                            Kor_Y = (double)((double)(((Kor_Y1) / (double)(1024)) - XMLW.Cmehenie_Y) / (XMLW.MY / XMLW.Const));
+                            Kor_Y = Kor_Y * (-1);
+                        }
+                        else
+                        {
+                            Kor_Y = (double)((double)(((Kor_Y1) / (double)(1024)) + XMLW.Cmehenie_Y) / (XMLW.PY / XMLW.Const));
+                        }
 
-                    if ((ComPorts.buffer[l][3] == 0x80) || (ComPorts.buffer[l][3] == 0x81) || (ComPorts.buffer[l][3] == 0x82) || (ComPorts.buffer[l][3] == 0x83))
-                    {
+                        if (Kor_P >= 0)
+                        {
+                            list1.Add(l, Kor_Z);
+                            list2.Add(l, Kor_Y);
+                            list3.Add(l, Kor_P);
+                        }
+                        //textBox2.Text = Convert.ToString(Math.Round(Kor_Z,2));
+                        //textBox2.Refresh();
+                        textBox3.Text = Convert.ToString(Math.Round(Kor_Y,2));
+                        textBox3.Refresh();
+                        if (l > 3300)
+                        {
+                            canselPr();
 
-                        Kor_Z = (double)((double)(((Kor_Z1) / (double)(1024)) - XMLW.Cmehenie_Z) / (XMLW.MZ / XMLW.Const)); // смешение от нуля...тарировочный коээфф...5 вольт!
-                        Kor_Z = Kor_Z * (-1);
-                    }
-                    else
-                    {
-                        Kor_Z = (double)((double)(((Kor_Z1) / (double)(1024)) + XMLW.Cmehenie_Z) / (XMLW.PZ / XMLW.Const));
-                    }
+                            XMLW.endpropise = true;
 
-                    if ((ComPorts.buffer[l][5] == 0x80) || (ComPorts.buffer[l][5] == 0x81) || (ComPorts.buffer[l][5] == 0x82) || (ComPorts.buffer[l][5] == 0x83))
-                    {
-                        Kor_Y = (double)((double)(((Kor_Y1) / (double)(1024)) - XMLW.Cmehenie_Y) / (XMLW.MY / XMLW.Const));
-                        Kor_Y = Kor_Y * (-1);
-                    }
-                    else
-                    {
-                        Kor_Y = (double)((double)(((Kor_Y1) / (double)(1024)) + XMLW.Cmehenie_Y) / (XMLW.PY / XMLW.Const));
-                    }
+                            a = XMLW.SearchPoint(proverka == true ? list1 : list2, 0.8, list2.Count, 0);
+                            b = XMLW.SearchPoint(proverka == true ? list1 : list2, -0.8, 0, list2.Count);
+                            c = XMLW.SearchPoint(proverka == true ? list1 : list2, 0, a, b);
 
-                    if (Kor_P >= 0)
-                    {
-                        list1.Add(l, Kor_Z);
-                        list2.Add(l, Kor_Y);
-                        list3.Add(l, Kor_P);
-                    }
-                    //textBox2.Text = Convert.ToString(Math.Round(Kor_Z,2));
-                    //textBox2.Refresh();
-                    textBox3.Text = Convert.ToString(Math.Round(Kor_Y, 2));
-                    textBox3.Refresh();
-                    if (l > 3300)
-                    {
-                        canselPr();
-
-                        XMLW.endpropise = true;
-
-                        a = XMLW.SearchPoint(proverka == true ? list1 : list2, 0.8, list2.Count, 0);
-                        b = XMLW.SearchPoint(proverka == true ? list1 : list2, -0.8, 0, list2.Count);
-                        c = XMLW.SearchPoint(proverka == true ? list1 : list2, 0, a, b);
-
-                        obsKof = XMLW.V * XMLW.Tay * 0.25 * (Math.PI) * Math.Pow(((XMLW.D * L / focus)), 2);
+                            obsKof = XMLW.V * XMLW.Tay * 0.25 * (Math.PI) * Math.Pow(((XMLW.D * L / focus)), 2);
 
 
-                        textBox8.Text = Convert.ToString(Math.Round((((list3[c].Y) / obsKof) * 1024), 2)); //под вопросом!
-                        textBox9.Text = Convert.ToString(Math.Round((((list3[b].Y) / obsKof) * 1024), 2));
-                        textBox10.Text = Convert.ToString(Math.Round((((list3[a].Y) / obsKof) * 1024), 2));
+                            textBox8.Text = Convert.ToString(Math.Round((((list3[c].Y) / obsKof) * 1024), 2)); //под вопросом!
+                            textBox9.Text = Convert.ToString(Math.Round((((list3[b].Y) / obsKof) * 1024), 2));
+                            textBox10.Text = Convert.ToString(Math.Round((((list3[a].Y) / obsKof) * 1024), 2));
 
 
-                        trackBar1.Maximum = XMLW.trBarMax;
-                        trackBar2.Maximum = XMLW.trBarMax;
-                        trackBar1.Enabled = true;
-                        trackBar2.Enabled = true;
+                            trackBar1.Maximum = XMLW.trBarMax;
+                            trackBar2.Maximum = XMLW.trBarMax;
+                            trackBar1.Enabled = true;
+                            trackBar2.Enabled = true;
 
-                        rejim++;
-                        timer_25 = 0;
-                        break;
-                        myTimer.Stop();
-                    }
+                            rejim++;
+                            timer_25 = 0;
+                            break;
+                            myTimer.Stop();
+                        }
 
-                    number++;
-
+                     number++;
+                 
                 }
 
                 if (Pysk.Checked == true)
@@ -2660,12 +2644,6 @@ namespace SosnaY_v00
             StickX1[1] = 0;
             ComPorts.port.DiscardInBuffer();
             ComPorts.port.DiscardOutBuffer();
-
-
-
-
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)

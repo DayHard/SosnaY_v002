@@ -404,17 +404,16 @@ namespace SosnaY_v00
         public double[] Buffer_Z = new double[2000000];
         public double[] Buffer_Y = new double[2000000];
         public double[] Buffer_P = new double[2000000];
-
+        public double[] Buffer_ZY = new double[2000000];
 
         //Счетчик позиции
         public int Counter;
-
         //Порог срабатывания (0.05)
-        public double ThresholdTrigger = 0.05D;
+        public double ThresholdTrigger;// = 0.05D;//0.05D;
         //Размер растра {количество средних значений}(100)
-        public int RastSize = 100;
+        public int RastSize;// = 100;
         //Время начала (в посылках)
-        public int StartTime = 1796;
+        public int StartTime;// = 1796;
 
         #endregion
 
@@ -486,6 +485,8 @@ namespace SosnaY_v00
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            FilterConfigRead();
+
             zagolovok = this.Text;
             this.Text = zagolovok + " " + " (" + DateTime.Now.Day.ToString() + "." + DateTime.Now.Month.ToString() + "." + DateTime.Now.Year.ToString() + " - " + DateTime.Now.Hour.ToString() + "." + DateTime.Now.Minute.ToString() + "." + DateTime.Now.Second.ToString() + ")";
             SetSize();
@@ -811,6 +812,37 @@ namespace SosnaY_v00
         {
             form4.TopMost = true;
             form4.Show();
+        }
+
+        public void FilterConfigRead()
+        {
+            try
+            {
+                XmlTextReader reader = new XmlTextReader("filterconfig.xml");
+                reader.Read();
+                if (reader.IsStartElement("Filter_config"))
+                {
+                    reader.ReadStartElement("Filter_config");
+                    while (reader.IsStartElement("Filter_description"))
+                    {
+                        reader.ReadStartElement("Filter_description");
+
+                        ThresholdTrigger = Convert.ToDouble(reader.ReadElementString("ThresholdTrigger"));
+                        RastSize = Convert.ToInt32(reader.ReadElementString("RastSize"));
+                        StartTime = Convert.ToInt32(reader.ReadElementString("StartTime"));
+
+                        reader.ReadEndElement();
+                    }
+                }
+                reader.Close();
+            }
+            catch (FileNotFoundException)
+            {
+                ThresholdTrigger = 0.05D;
+                StartTime = 1796;
+                RastSize = 100;
+            }
+
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
@@ -1415,35 +1447,30 @@ namespace SosnaY_v00
 
                     ////!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                         Buffer_Z[Counter] = Kor_Z;
-                        Counter++;
-
                         Buffer_Y[Counter] = Kor_Y;
-
                         Buffer_P[Counter] = Kor_P;
+                        Buffer_ZY[Counter] = Kor_ZY;
 
                     if (Counter > StartTime)//1798)
                     {
                         double buf_Z_tmp = 0;
                         double buf_Y_tmp = 0;
                         double buf_P_tmp = 0;
+                        double buf_ZY_tmp = 0;
 
-                        if (Application.OpenForms["Form5"] != null)
-                        {
-                            RastSize = form5.RastSize;
-                            ThresholdTrigger = form5.ThresholdTrigger;
-                            StartTime = form5.StartTime;
-                        }
 
                         for (int i = Counter - RastSize - 1; i < Counter - 1; i++)
                         {
                             buf_Z_tmp += Buffer_Z[i];
                             buf_Y_tmp += Buffer_Y[i];
                             buf_P_tmp += Buffer_P[i];
+                            buf_ZY_tmp += Buffer_ZY[i];
                         }
 
                         buf_Z_tmp /= RastSize;
                         buf_Y_tmp /= RastSize;
                         buf_P_tmp /= RastSize;
+                        buf_ZY_tmp /= RastSize;
 
                         // Расчет корректировки для графика Kor_Z
                         if (Math.Abs(Buffer_Z[Counter] - buf_Z_tmp) > ThresholdTrigger)
@@ -1501,7 +1528,27 @@ namespace SosnaY_v00
                         {
                             Kor_P = Buffer_P[Counter];
                         }
+
+                        // Расчет корректировки графика Kor_ZY
+                        if (Math.Abs(Buffer_ZY[Counter] - buf_ZY_tmp) > ThresholdTrigger)
+                        {
+                            // Взависимости от знака +- 0.05
+                            if (Buffer_ZY[Counter] - buf_ZY_tmp >= 0)
+                            {
+                                Kor_ZY = buf_ZY_tmp + ThresholdTrigger;
+                            }
+                            else
+                            {
+                                Kor_ZY = buf_ZY_tmp - ThresholdTrigger;
+                            }
+                            Buffer_ZY[Counter] = Kor_ZY;
+                        }
+                        else
+                        {
+                            Kor_ZY = Buffer_ZY[Counter];
+                        }
                     }
+                    Counter++;
                     ////!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
                     list1.Add(l, Kor_Z);

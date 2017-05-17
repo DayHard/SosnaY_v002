@@ -34,26 +34,6 @@
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -64,6 +44,16 @@
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
@@ -75,6 +65,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -98,17 +98,15 @@
             this.добавитьВОтчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.timerStartTime = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -116,8 +114,8 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer1.Location = new System.Drawing.Point(0, 27);
             this.splitContainer1.Name = "splitContainer1";
@@ -173,8 +171,8 @@
             this.trackBar2.TabIndex = 7;
             this.trackBar2.TabStop = false;
             this.trackBar2.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             this.trackBar2.ValueChanged += new System.EventHandler(this.trackBar2_Scroll);
+            this.trackBar2.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
             // trackBar1
             // 
@@ -186,26 +184,147 @@
             this.trackBar1.Size = new System.Drawing.Size(725, 25);
             this.trackBar1.TabIndex = 6;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             this.trackBar1.ValueChanged += new System.EventHandler(this.trackBar1_Scroll);
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // zedGraphControl1
             // 
             this.zedGraphControl1.AutoSize = true;
             this.zedGraphControl1.Location = new System.Drawing.Point(0, 4);
             this.zedGraphControl1.Name = "zedGraphControl1";
-            this.zedGraphControl1.ScrollGrace = 0D;
-            this.zedGraphControl1.ScrollMaxX = 0D;
-            this.zedGraphControl1.ScrollMaxY = 0D;
-            this.zedGraphControl1.ScrollMaxY2 = 0D;
-            this.zedGraphControl1.ScrollMinX = 0D;
-            this.zedGraphControl1.ScrollMinY = 0D;
-            this.zedGraphControl1.ScrollMinY2 = 0D;
+            this.zedGraphControl1.ScrollGrace = 0;
+            this.zedGraphControl1.ScrollMaxX = 0;
+            this.zedGraphControl1.ScrollMaxY = 0;
+            this.zedGraphControl1.ScrollMaxY2 = 0;
+            this.zedGraphControl1.ScrollMinX = 0;
+            this.zedGraphControl1.ScrollMinY = 0;
+            this.zedGraphControl1.ScrollMinY2 = 0;
             this.zedGraphControl1.Size = new System.Drawing.Size(725, 463);
             this.zedGraphControl1.TabIndex = 10;
             this.zedGraphControl1.TabStop = false;
             this.zedGraphControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.zedGraphControl1_Paint_1);
             this.zedGraphControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.zedGraphControl1_MouseClick);
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.label9);
+            this.groupBox7.Controls.Add(this.label10);
+            this.groupBox7.Controls.Add(this.label11);
+            this.groupBox7.Controls.Add(this.textBox10);
+            this.groupBox7.Controls.Add(this.label1);
+            this.groupBox7.Controls.Add(this.label2);
+            this.groupBox7.Controls.Add(this.textBox9);
+            this.groupBox7.Controls.Add(this.label3);
+            this.groupBox7.Controls.Add(this.textBox8);
+            this.groupBox7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.groupBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(210)))));
+            this.groupBox7.Location = new System.Drawing.Point(1, 246);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(170, 141);
+            this.groupBox7.TabIndex = 50;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "В момент Т=0,00с";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(135, 102);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(18, 16);
+            this.label9.TabIndex = 51;
+            this.label9.Text = "м";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.Location = new System.Drawing.Point(135, 66);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(18, 16);
+            this.label10.TabIndex = 50;
+            this.label10.Text = "м";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(135, 31);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(18, 16);
+            this.label11.TabIndex = 49;
+            this.label11.Text = "м";
+            // 
+            // textBox10
+            // 
+            this.textBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(235)))));
+            this.textBox10.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox10.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.textBox10.Location = new System.Drawing.Point(57, 26);
+            this.textBox10.Multiline = true;
+            this.textBox10.Name = "textBox10";
+            this.textBox10.ReadOnly = true;
+            this.textBox10.Size = new System.Drawing.Size(74, 30);
+            this.textBox10.TabIndex = 0;
+            this.textBox10.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(26, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 29);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Z";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(28, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(28, 29);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Y";
+            // 
+            // textBox9
+            // 
+            this.textBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(235)))));
+            this.textBox9.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox9.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.textBox9.Location = new System.Drawing.Point(57, 61);
+            this.textBox9.Multiline = true;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(74, 30);
+            this.textBox9.TabIndex = 1;
+            this.textBox9.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(13, 99);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 26);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "ZY";
+            // 
+            // textBox8
+            // 
+            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(235)))));
+            this.textBox8.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.textBox8.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.textBox8.Location = new System.Drawing.Point(57, 97);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
+            this.textBox8.Size = new System.Drawing.Size(74, 30);
+            this.textBox8.TabIndex = 2;
+            this.textBox8.TabStop = false;
             // 
             // groupBox2
             // 
@@ -332,249 +451,6 @@
             this.label20.TabIndex = 4;
             this.label20.Text = "Z";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label29);
-            this.groupBox1.Controls.Add(this.label28);
-            this.groupBox1.Controls.Add(this.label27);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.textBox16);
-            this.groupBox1.Controls.Add(this.textBox13);
-            this.groupBox1.Controls.Add(this.textBox12);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(210)))));
-            this.groupBox1.Location = new System.Drawing.Point(1, 278);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(171, 146);
-            this.groupBox1.TabIndex = 30;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Max до 4000 м";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.ForeColor = System.Drawing.Color.Black;
-            this.label29.Location = new System.Drawing.Point(136, 106);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(19, 18);
-            this.label29.TabIndex = 48;
-            this.label29.Text = "м";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.ForeColor = System.Drawing.Color.Black;
-            this.label28.Location = new System.Drawing.Point(136, 70);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(19, 18);
-            this.label28.TabIndex = 47;
-            this.label28.Text = "м";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.ForeColor = System.Drawing.Color.Black;
-            this.label27.Location = new System.Drawing.Point(136, 35);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(19, 18);
-            this.label27.TabIndex = 46;
-            this.label27.Text = "м";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(11, 99);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(44, 29);
-            this.label17.TabIndex = 45;
-            this.label17.Text = "ZY";
-            // 
-            // textBox16
-            // 
-            this.textBox16.BackColor = System.Drawing.Color.White;
-            this.textBox16.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox16.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
-            this.textBox16.Location = new System.Drawing.Point(58, 99);
-            this.textBox16.Multiline = true;
-            this.textBox16.Name = "textBox16";
-            this.textBox16.ReadOnly = true;
-            this.textBox16.Size = new System.Drawing.Size(74, 30);
-            this.textBox16.TabIndex = 44;
-            this.textBox16.TabStop = false;
-            // 
-            // textBox13
-            // 
-            this.textBox13.BackColor = System.Drawing.Color.White;
-            this.textBox13.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox13.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
-            this.textBox13.Location = new System.Drawing.Point(58, 63);
-            this.textBox13.Multiline = true;
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(74, 30);
-            this.textBox13.TabIndex = 3;
-            this.textBox13.TabStop = false;
-            // 
-            // textBox12
-            // 
-            this.textBox12.BackColor = System.Drawing.Color.White;
-            this.textBox12.Cursor = System.Windows.Forms.Cursors.Default;
-            this.textBox12.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
-            this.textBox12.Location = new System.Drawing.Point(58, 27);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(74, 30);
-            this.textBox12.TabIndex = 2;
-            this.textBox12.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(27, 64);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(28, 29);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Y";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(26, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 29);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Z";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.label9);
-            this.groupBox7.Controls.Add(this.label10);
-            this.groupBox7.Controls.Add(this.label11);
-            this.groupBox7.Controls.Add(this.textBox10);
-            this.groupBox7.Controls.Add(this.label1);
-            this.groupBox7.Controls.Add(this.label2);
-            this.groupBox7.Controls.Add(this.textBox9);
-            this.groupBox7.Controls.Add(this.label3);
-            this.groupBox7.Controls.Add(this.textBox8);
-            this.groupBox7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(210)))));
-            this.groupBox7.Location = new System.Drawing.Point(1, 246);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(170, 141);
-            this.groupBox7.TabIndex = 50;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "В момент Т=0,00с";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(135, 102);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(18, 16);
-            this.label9.TabIndex = 51;
-            this.label9.Text = "м";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(135, 66);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(18, 16);
-            this.label10.TabIndex = 50;
-            this.label10.Text = "м";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(135, 31);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(18, 16);
-            this.label11.TabIndex = 49;
-            this.label11.Text = "м";
-            // 
-            // textBox10
-            // 
-            this.textBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(235)))));
-            this.textBox10.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBox10.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
-            this.textBox10.Location = new System.Drawing.Point(57, 26);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(74, 30);
-            this.textBox10.TabIndex = 0;
-            this.textBox10.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(26, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 29);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Z";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(28, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(28, 29);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Y";
-            // 
-            // textBox9
-            // 
-            this.textBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(235)))));
-            this.textBox9.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBox9.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
-            this.textBox9.Location = new System.Drawing.Point(57, 61);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(74, 30);
-            this.textBox9.TabIndex = 1;
-            this.textBox9.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(13, 99);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 26);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "ZY";
-            // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(235)))));
-            this.textBox8.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.textBox8.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
-            this.textBox8.Location = new System.Drawing.Point(57, 97);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(74, 30);
-            this.textBox8.TabIndex = 2;
-            this.textBox8.TabStop = false;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -699,6 +575,128 @@
             this.textBox4.Size = new System.Drawing.Size(171, 67);
             this.textBox4.TabIndex = 5;
             this.textBox4.Text = "  Примечание:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label29);
+            this.groupBox1.Controls.Add(this.label28);
+            this.groupBox1.Controls.Add(this.label27);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.textBox16);
+            this.groupBox1.Controls.Add(this.textBox13);
+            this.groupBox1.Controls.Add(this.textBox12);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(210)))));
+            this.groupBox1.Location = new System.Drawing.Point(1, 278);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(171, 146);
+            this.groupBox1.TabIndex = 30;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Max до 4000 м";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.ForeColor = System.Drawing.Color.Black;
+            this.label29.Location = new System.Drawing.Point(136, 106);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(19, 18);
+            this.label29.TabIndex = 48;
+            this.label29.Text = "м";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.ForeColor = System.Drawing.Color.Black;
+            this.label28.Location = new System.Drawing.Point(136, 70);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(19, 18);
+            this.label28.TabIndex = 47;
+            this.label28.Text = "м";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.ForeColor = System.Drawing.Color.Black;
+            this.label27.Location = new System.Drawing.Point(136, 35);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(19, 18);
+            this.label27.TabIndex = 46;
+            this.label27.Text = "м";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(11, 99);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(44, 29);
+            this.label17.TabIndex = 45;
+            this.label17.Text = "ZY";
+            // 
+            // textBox16
+            // 
+            this.textBox16.BackColor = System.Drawing.Color.White;
+            this.textBox16.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox16.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.textBox16.Location = new System.Drawing.Point(58, 99);
+            this.textBox16.Multiline = true;
+            this.textBox16.Name = "textBox16";
+            this.textBox16.ReadOnly = true;
+            this.textBox16.Size = new System.Drawing.Size(74, 30);
+            this.textBox16.TabIndex = 44;
+            this.textBox16.TabStop = false;
+            // 
+            // textBox13
+            // 
+            this.textBox13.BackColor = System.Drawing.Color.White;
+            this.textBox13.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox13.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.textBox13.Location = new System.Drawing.Point(58, 63);
+            this.textBox13.Multiline = true;
+            this.textBox13.Name = "textBox13";
+            this.textBox13.ReadOnly = true;
+            this.textBox13.Size = new System.Drawing.Size(74, 30);
+            this.textBox13.TabIndex = 3;
+            this.textBox13.TabStop = false;
+            // 
+            // textBox12
+            // 
+            this.textBox12.BackColor = System.Drawing.Color.White;
+            this.textBox12.Cursor = System.Windows.Forms.Cursors.Default;
+            this.textBox12.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.textBox12.Location = new System.Drawing.Point(58, 27);
+            this.textBox12.Multiline = true;
+            this.textBox12.Name = "textBox12";
+            this.textBox12.ReadOnly = true;
+            this.textBox12.Size = new System.Drawing.Size(74, 30);
+            this.textBox12.TabIndex = 2;
+            this.textBox12.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(27, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 29);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Y";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(26, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(29, 29);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Z";
             // 
             // groupBox6
             // 
@@ -882,8 +880,8 @@
             // 
             this.toolStripMenuItem1.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.T)));
+            this.toolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+                        | System.Windows.Forms.Keys.T)));
             this.toolStripMenuItem1.Size = new System.Drawing.Size(185, 20);
             this.toolStripMenuItem1.Text = "Усреднить (настраиваемое)";
             this.toolStripMenuItem1.Visible = false;
@@ -932,24 +930,23 @@
             this.Name = "Form2";
             this.Text = "Form2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Resize += new System.EventHandler(this.Form2_Resize);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -1032,6 +1029,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ToolStripMenuItem усреднитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.Timer timerStartTime;
+
+
     }
 }

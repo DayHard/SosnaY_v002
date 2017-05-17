@@ -34,13 +34,6 @@ namespace SosnaY_v00
         public short click;
         public bool stend;
 
-        //Порог срабатывания (0.05)
-        public double ThresholdTrigger;
-        //Размер растра {количество средних значений}(100)
-        public int RastSize;
-        //Время начала (в посылках)
-        public int StartTime;
-
 
         public void XmlConfigRead() //чтение данных для настроек
         {
@@ -73,6 +66,36 @@ namespace SosnaY_v00
             rd.Close();
         }
 
+        public void FilterConfigRead()
+        {
+            try
+            {
+                XmlTextReader reader = new XmlTextReader("filterconfig.xml");
+                reader.Read();
+                if (reader.IsStartElement("Filter_config"))
+                {
+                    reader.ReadStartElement("Filter_config");
+                    while (reader.IsStartElement("Filter_description"))
+                    {
+                        reader.ReadStartElement("Filter_description");
+
+                        tbThresholdTrigger.Text =  reader.ReadElementString("ThresholdTrigger");
+                        tbRastSize.Text = reader.ReadElementString("RastSize");
+                        tbStartTime.Text = reader.ReadElementString("StartTime");
+
+                        reader.ReadEndElement();
+                    }
+                }
+                reader.Close();
+            }
+            catch (FileNotFoundException)
+            {
+                tbThresholdTrigger.Text = "0,05";
+                tbStartTime.Text = "1796";
+                tbRastSize.Text = "100";
+            }
+        }
+
         public void SaveXML()
         {
             
@@ -97,6 +120,7 @@ namespace SosnaY_v00
         private void Form5_Load(object sender, EventArgs e)
         {
             XMLW.XmlConfigRead();
+            FilterConfigRead();
 
             textBox1.Text = Convert.ToString(XMLW.T);
             textBox2.Text = Convert.ToString(XMLW.Fstart);
@@ -110,14 +134,31 @@ namespace SosnaY_v00
         private void button1_Click(object sender, EventArgs e)
         {
             XMLW.SaveXML(textBox1.Text, textBox2.Text, textBox6.Text, textBox3.Text, textBox4.Text, textBox5.Text, Convert.ToString(XMLW.PZ), Convert.ToString(XMLW.MZ), Convert.ToString(XMLW.PY), Convert.ToString(XMLW.MY), Convert.ToString(XMLW.P), Convert.ToString(XMLW.COM), Convert.ToString(XMLW.stend), Convert.ToString(XMLW.Cmehenie_Z), Convert.ToString(XMLW.Cmehenie_Y));
+            XmlTextWriter XMLWriter = new XmlTextWriter("temp.xml", null);
+            XMLWriter.WriteElementString("RastSize", tbRastSize.Text);
+            XMLWriter.WriteElementString("ThresholdTrigger", tbThresholdTrigger.Text);
+            XMLWriter.WriteElementString("StartTime", tbStartTime.Text);
+            XMLWriter.Close();
         }
 
         private void Form5_FormClosing(object sender, FormClosingEventArgs e)
         {
             form6.Show();
-            ThresholdTrigger = Double.Parse(tbThresholdTrigger.Text);
-            RastSize = Int32.Parse(tbRastSize.Text);
-            StartTime = Int32.Parse(tbStartTime.Text);
+
+            //!!
+            XmlTextWriter wr = new XmlTextWriter("filterconfig.xml", null);
+            wr.WriteStartElement("Filter_config");
+            wr.Formatting = Formatting.Indented;
+
+            wr.WriteStartElement("Filter_description");
+            wr.WriteElementString("ThresholdTrigger", tbThresholdTrigger.Text);
+            wr.WriteElementString("RastSize", tbRastSize.Text);
+            wr.WriteElementString("StartTime", tbStartTime.Text);
+            wr.WriteEndElement();
+
+            wr.WriteFullEndElement();
+            wr.Close();
+            //!!
 
             if (click == 1)
             {
@@ -127,7 +168,7 @@ namespace SosnaY_v00
             {
 
             }
-            this.Dispose();
+            //this.Dispose();
         }
 
         private void button3_Click(object sender, EventArgs e)

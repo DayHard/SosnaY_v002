@@ -358,7 +358,6 @@
             this.tbStartTime.Name = "tbStartTime";
             this.tbStartTime.Size = new System.Drawing.Size(76, 35);
             this.tbStartTime.TabIndex = 32;
-            this.tbStartTime.Text = "1796";
             this.tbStartTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbThresholdTrigger
@@ -368,7 +367,6 @@
             this.tbThresholdTrigger.Name = "tbThresholdTrigger";
             this.tbThresholdTrigger.Size = new System.Drawing.Size(76, 35);
             this.tbThresholdTrigger.TabIndex = 31;
-            this.tbThresholdTrigger.Text = "0.05";
             this.tbThresholdTrigger.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbRastSize
@@ -378,7 +376,6 @@
             this.tbRastSize.Name = "tbRastSize";
             this.tbRastSize.Size = new System.Drawing.Size(76, 35);
             this.tbRastSize.TabIndex = 30;
-            this.tbRastSize.Text = "100";
             this.tbRastSize.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label22
