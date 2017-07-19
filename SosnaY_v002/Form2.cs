@@ -322,6 +322,7 @@ namespace SosnaY_v00
         public PointPairList list3 = new PointPairList();
         public PointPairList list4 = new PointPairList();
 
+        private double maxout, max2out;
         public bool tolerance = false;
         public int MouseClick = 0;
         PointD pointMin, pointCenter, pointMax;
@@ -1689,24 +1690,28 @@ namespace SosnaY_v00
 
 
                                 max = Math.Abs(list1[0].Y);
+                                maxout = list1[0].Y;
 
                                 for (int i = 1; i < list1.Count; i++)
                                 {
                                     if (Math.Abs(list1[i].Y) > max)
                                     {
                                         max = Math.Abs(list1[i].Y);
+                                        maxout = list1[i].Y;
                                         element_i1 = i;
                                     }
 
                                 }
 
                                 max2 = Math.Abs(list2[0].Y);
+                                max2out = list2[0].Y;
 
                                 for (int i = 1; i < list2.Count; i++)
                                 {
                                     if (Math.Abs(list2[i].Y) > max2)
                                     {
                                         max2 = Math.Abs(list2[i].Y);
+                                        max2out = list2[i].Y;
                                         element_i2 = i;
                                     }
 
@@ -1715,8 +1720,8 @@ namespace SosnaY_v00
                             }
                             catch { }
 
-                            textBox20.Text = Convert.ToString(Math.Round((max * 3.3), 2));
-                            textBox19.Text = Convert.ToString(Math.Round((max2 * 3.3), 2));
+                            textBox20.Text = Convert.ToString(Math.Round((maxout * 3.3), 2));
+                            textBox19.Text = Convert.ToString(Math.Round((max2out * 3.3), 2));
                             textBox18.Text = Convert.ToString(maxZY);
 
                         }
@@ -3254,24 +3259,28 @@ namespace SosnaY_v00
 
 
                         max = Math.Abs(list1[0].Y);
+                        maxout = list1[0].Y;
 
                         for (int i = 1; i < list1.Count; i++)
                         {
                             if (Math.Abs(list1[i].Y) > max)
                             {
                                 max = Math.Abs(list1[i].Y);
+                                maxout = list1[i].Y;
                                 element_i1 = i;
                             }
 
                         }
 
                         max2 = Math.Abs(list2[0].Y);
+                        max2out = list2[0].Y;
 
                         for (int i = 1; i < list2.Count; i++)
                         {
                             if (Math.Abs(list2[i].Y) > max2)
                             {
                                 max2 = Math.Abs(list2[i].Y);
+                                max2out = list2[i].Y;
                                 element_i2 = i;
                             }
 
@@ -3280,8 +3289,8 @@ namespace SosnaY_v00
                     }
                     catch { }
 
-                    textBox20.Text = Convert.ToString(Math.Round((max * 3.3), 2));
-                    textBox19.Text = Convert.ToString(Math.Round((max2 * 3.3), 2));
+                    textBox20.Text = Convert.ToString(Math.Round((maxout * 3.3), 2));
+                    textBox19.Text = Convert.ToString(Math.Round((max2out * 3.3), 2));
                     textBox18.Text = Convert.ToString(maxZY);
 
                 }
@@ -3419,24 +3428,28 @@ namespace SosnaY_v00
 
 
                         max = Math.Abs(list1[0].Y);
+                        maxout = list1[0].Y;
 
                         for (int i = 1; i < list1.Count; i++)
                         {
                             if (Math.Abs(list1[i].Y) > max)
                             {
                                 max = Math.Abs(list1[i].Y);
+                                maxout = list1[i].Y;
                                 element_i1 = i;
                             }
 
                         }
 
                         max2 = Math.Abs(list2[0].Y);
+                        max2out = list2[0].Y;
 
                         for (int i = 1; i < list2.Count; i++)
                         {
                             if (Math.Abs(list2[i].Y) > max2)
                             {
                                 max2 = Math.Abs(list2[i].Y);
+                                max2out = list2[i].Y;
                                 element_i2 = i;
                             }
 
@@ -3445,8 +3458,8 @@ namespace SosnaY_v00
                     }
                     catch { }
 
-                    textBox20.Text = Convert.ToString(Math.Round((max * 3.3), 2));
-                    textBox19.Text = Convert.ToString(Math.Round((max2 * 3.3), 2));
+                    textBox20.Text = Convert.ToString(Math.Round((maxout * 3.3), 2));
+                    textBox19.Text = Convert.ToString(Math.Round((max2out * 3.3), 2));
                     textBox18.Text = Convert.ToString(maxZY);
 
                 }
@@ -3639,24 +3652,28 @@ namespace SosnaY_v00
 
 
                         max = Math.Abs(list1[0].Y);
+                        maxout = list1[0].Y;
 
                         for (int i = 1; i < list1.Count; i++)
                         {
                             if (Math.Abs(list1[i].Y) > max)
                             {
                                 max = Math.Abs(list1[i].Y);
+                                maxout = list1[i].Y;
                                 element_i1 = i;
                             }
 
                         }
 
                         max2 = Math.Abs(list2[0].Y);
+                        max2out = list2[0].Y;
 
                         for (int i = 1; i < list2.Count; i++)
                         {
                             if (Math.Abs(list2[i].Y) > max2)
                             {
                                 max2 = Math.Abs(list2[i].Y);
+                                max2out = list2[i].Y;
                                 element_i2 = i;
                             }
 
@@ -3665,8 +3682,8 @@ namespace SosnaY_v00
                     }
                     catch { }
 
-                    textBox20.Text = Convert.ToString(Math.Round((max * 3.3), 2));
-                    textBox19.Text = Convert.ToString(Math.Round((max2 * 3.3), 2));
+                    textBox20.Text = Convert.ToString(Math.Round((maxout * 3.3), 2));
+                    textBox19.Text = Convert.ToString(Math.Round((max2out * 3.3), 2));
                     textBox18.Text = Convert.ToString(maxZY);
 
                 }
@@ -3804,24 +3821,28 @@ namespace SosnaY_v00
 
 
                         max = Math.Abs(list1[0].Y);
+                        maxout = list1[0].Y;
 
                         for (int i = 1; i < list1.Count; i++)
                         {
                             if (Math.Abs(list1[i].Y) > max)
                             {
                                 max = Math.Abs(list1[i].Y);
+                                max = list1[i].Y;
                                 element_i1 = i;
                             }
 
                         }
 
                         max2 = Math.Abs(list2[0].Y);
+                        max2out = list2[0].Y;
 
                         for (int i = 1; i < list2.Count; i++)
                         {
                             if (Math.Abs(list2[i].Y) > max2)
                             {
                                 max2 = Math.Abs(list2[i].Y);
+                                max2out = list2[i].Y;
                                 element_i2 = i;
                             }
 
@@ -3830,8 +3851,8 @@ namespace SosnaY_v00
                     }
                     catch { }
 
-                    textBox20.Text = Convert.ToString(Math.Round((max * 3.3), 2));
-                    textBox19.Text = Convert.ToString(Math.Round((max2 * 3.3), 2));
+                    textBox20.Text = Convert.ToString(Math.Round((maxout * 3.3), 2));
+                    textBox19.Text = Convert.ToString(Math.Round((max2out * 3.3), 2));
                     textBox18.Text = Convert.ToString(maxZY);
 
                 }
